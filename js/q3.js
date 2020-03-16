@@ -9,14 +9,15 @@ function formlist(doneToday, date) {
 }
 inputForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    console.log(event);
-    var doneToday = event.target.doneToday.value;
-    var date = event.target.date.value;
+    // console.log(event);
+    var doneToday = event.target.donetoday.value;
+    var date = event.target.mydate.value;
+    // console.log(doneToday);
 
     var incert = new formlist(doneToday, date);
     console.log(incert);
     content.push(incert);
-    console.log(content);
+    // console.log(content);
     setItem();
     listofResult();
     inputForm.reset();
