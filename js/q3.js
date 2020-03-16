@@ -30,7 +30,7 @@ function  listofResult(){
     var ulEl=document.getElementById('toDo');
     for (var i=0 ;i<content.length;i++){
         var liEl=document.createElement('li');
-        liEl.textContent=`${content[i].value} at ${content[i].date} `;
+        liEl.textContent=`${content[i].doneToday} at ${content[i].date} `;
         ulEl.appendChild(liEl);
     }
 
