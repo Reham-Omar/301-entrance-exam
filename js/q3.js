@@ -16,6 +16,7 @@ inputForm.addEventListener('submit', function (event) {
     var incert = new formlist(doneToday, date);
     console.log(incert);
     content.push(incert);
+    console.log(content);
     setItem();
     listofResult();
     inputForm.reset();
