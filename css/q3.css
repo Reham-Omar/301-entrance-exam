@@ -3,6 +3,7 @@
 body{
     margin: auto;
     background-color: #eee;
+    overflow-x: hidden;
 }
 header {
     background-color: #6d8adbc7;
@@ -54,7 +55,8 @@ label {
 
     label#dates {
         position: relative;
-        top: 37px;
+        top: 59px;
+        left: -370px;
     }
     input[type="submit"] {
         position: relative;
@@ -64,4 +66,25 @@ label {
         left: 332px;
         background-color: #6d8adbc7;
         border-bottom-color: #6d8adbc7;
+    }
+
+    div#resultlist {
+        position: relative;
+        top: 58px;
+        left: 116px;
+    }
+
+    li {
+        margin-bottom: 13px;
+        font-size: 22px;
+    }
+    p {
+        margin-bottom: 42px;
+    }
+
+    input#donetoday {
+        width: 362px;
+        height: 40px;
+        margin-top: 21px;
+        margin-bottom: 10px;
     }
