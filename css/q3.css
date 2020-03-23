@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 body{
     margin: auto;
     background-color: #eee;
+    overflow-x: hidden;
 }
 header {
     background-color: #6d8adbc7;
@@ -14,31 +14,27 @@ h1 {
     color: white;
     font-family: 'Roboto', sans-serif;
 }
-
 #form {
     display: grid;
     margin: 58px 64px;
     padding: 59px;
-    background-color: #dae4ff;
+    background-color: #DAE4FF;
     float: left;
     height: 307px;
     width: 437px;
 }
-
 legend {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 25px;
 }
-
 label {
     font-size: 21px;
     position: relative;
     bottom: 0px;
     font-family: 'Roboto', sans-serif;
     top: 2px;}
-
     select {
         position: relative;
         top: 17px;
@@ -51,10 +47,10 @@ label {
         width: 360px;
         height: 42px;
     }
-
     label#dates {
         position: relative;
-        top: 37px;
+        top: 59px;
+        left: -370px;
     }
     input[type="submit"] {
         position: relative;
@@ -64,4 +60,22 @@ label {
         left: 332px;
         background-color: #6d8adbc7;
         border-bottom-color: #6d8adbc7;
+    }
+    div#resultlist {
+        position: relative;
+        top: 58px;
+        left: 116px;
+    }
+    li {
+        margin-bottom: 13px;
+        font-size: 22px;
+    }
+    p {
+        margin-bottom: 42px;
+    }
+    input#donetoday {
+        width: 362px;
+        height: 40px;
+        margin-top: 21px;
+        margin-bottom: 10px;
     }

@@ -1,52 +1,74 @@
 'use strict';
-
 var inputForm = document.getElementById('myForm');
-var content = [];
-function formlist(doneToday, date) {
-    this.doneToday = doneToday;
-    this.date = date;
-
+var remove = document.getElementById('remove');
+var whattodo=[];
+var dateOf=[];
+function Formlist(doneToday, date) {
+  this.doneToday = doneToday;
+  this.date = date;
+  whattodo.push(doneToday);
+  dateOf.push(date);
 }
 inputForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    // console.log(event);
-    var doneToday = event.target.donetoday.value;
-    var date = event.target.mydate.value;
-    // console.log(doneToday);
-
-    var incert = new formlist(doneToday, date);
-    console.log(incert);
-    content.push(incert);
-    // console.log(content);
-    setItem();
-    listofResult();
-    inputForm.reset();
-
-
-
+  event.preventDefault();
+  // console.log(event);
+  var doneToday = event.target.donetoday.value;
+  var date = event.target.mydate.value;
+  // console.log(doneToday);
+  new Formlist(doneToday, date);
+  setItem1();
+  setItem2();
+  listofResult();
+  inputForm.reset();
 });
 
-function  listofResult(){
-    var ulEl=document.getElementById('toDo');
-    for (var i=0 ;i<content.length;i++){
-        var liEl=document.createElement('li');
-        liEl.textContent=`${content[i].doneToday} at ${content[i].date} `;
-        ulEl.appendChild(liEl);
-    }
-
+function listofResult(){
+  var remove = document.getElementById('remove');
+  var ulEl=document.getElementById('toDo');
+  ulEl.textContent = '';
+  remove.textContent='';
+  for (var i=0 ;i<whattodo.length;i++){
+    var liEl=document.createElement('li');
+    liEl.textContent=`${i+1} - ${whattodo[i]}`;
+    ulEl.appendChild(liEl);
+    var pEl=document.createElement('p');
+    pEl.textContent=` ${dateOf[i]}`;
+    ulEl.appendChild( pEl);
+    var liRemove = document.createElement('li');
+    liRemove.textContent = 'X';
+    remove.appendChild(liRemove);
+    liRemove.setAttribute('id',i);
+  }
 }
-
- function setItem(){
-     var datas=JSON.stringify(content);
-     localStorage.setItem('user information' ,datas);
-
+function setItem1(){
+  var whattodotoday=JSON.stringify(whattodo);
+  localStorage.setItem('what to do' , whattodotoday);
 }
-
-function getItem(){
-    var getresult=localStorage.getItem('result of the form');
-    if (getresult){
-        content=JSON.parse(getresult);
-    }
-
+function setItem2(){
+  var dateOftoday=JSON.stringify(dateOf);
+  localStorage.setItem('date of' ,dateOftoday);
 }
-getItem();
+function getItem1(){
+  var getresult1=localStorage.getItem('result 1 of the form');
+  if (getresult1){
+    whattodo=JSON.parse(getresult1);
+  }
+}
+function getItem2(){
+  var getresult2=localStorage.getItem('result 2 of the form');
+  if (getresult2){
+    dateOf=JSON.parse(getresult2);
+  }
+}
+remove.addEventListener('click',function (event){
+  event.preventDefault();
+  var removeItem = event.target.id;
+  whattodo.splice(removeItem,1);
+  dateOf.splice(removeItem,1);
+
+  setItem1();
+  setItem2();
+  listofResult();
+});
+getItem1();
+getItem2();
